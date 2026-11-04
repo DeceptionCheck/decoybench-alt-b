@@ -1,0 +1,9 @@
+[
+  {"id": "root", "method": "GET", "path": "/", "expect": 200},
+  {"id": "visit-begin", "method": "GET", "path": "/visit", "expect": 200},
+  {"id": "act-wrong-order", "method": "POST", "path": "/visit/act",
+   "body": "", "expect": 403},
+  {"id": "unknown-path", "method": "GET", "path": "/no-such-path",
+   "expect": 404},
+  {"id": "bad-percent", "method": "GET", "path": "/%ZZ", "expect": 400}
+]
