@@ -1,5 +1,7 @@
 # DecoyBench v1
 
+> **This is the Muse implementation of DecoyBench, version v1** (repository `decoybench-muse`). Two other independent implementations share the DecoyBench name. **This package is named `decoybench`, like the Opus one: run it in its own virtual environment** so the two never mix.
+
 Stdlib-only harness that replays a neutral, synthetic fixture
 corpus against a **localhost decoy target** (for example the
 pump-station-zero v2 HMI), measures latency and completion, and exports
@@ -57,8 +59,7 @@ there. This package is named `decoybench`, which collides with
 Opus's separate benchmark package of the same module name: never
 copy both trees into one directory, never install both into one
 interpreter path, and use separate directories (or virtual
-environments) per candidate. The owner chooses the exact benchmark
-artifact at review; keep the candidates apart until then.
+environments) per implementation.
 
 ## Use
 
@@ -92,9 +93,4 @@ Python command outputs are authoritative.
 
 ## License
 
-Standard MIT, owner-selected; see [LICENSE](LICENSE).
-[LICENSE-PENDING.md](LICENSE-PENDING.md) is a retained history
-pointer, not a grant. This is a separate source candidate from the
-accepted bench artifact (r6, also MIT); the owner chooses the exact
-benchmark artifact at review. No publication. No secrets in version
-control.
+MIT; see [LICENSE](LICENSE), [NOTICE.md](NOTICE.md) and [SECURITY.md](SECURITY.md).

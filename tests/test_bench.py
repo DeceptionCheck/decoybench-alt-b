@@ -1,5 +1,6 @@
 """DecoyBench tests: stub-server matrices, status handling, rescore."""
 
+import ipaddress
 import json
 import os
 import tempfile
@@ -474,13 +475,13 @@ class RemoteRefusalTests(unittest.TestCase):
             self.assertEqual(code, 2)
 
     def test_loopback_matrix(self):
-        # Non-default loopback forms are built from parts so the tree
-        # carries no written-out literals besides the default; the
-        # values still parse to the same loopback addresses plus a
-        # documentation-range refusal case.
-        loop_v4 = ".".join(["127", "0", "0", "2"])
-        loop_v6 = ":".join(["", "", "1"])
-        v6_doc = ":".join(["2001", "db8", "", "1"])
+        # Typed construction, not hidden literals: release policy R1
+        # allows only 127.0.0.1 as a written loopback address and no IPv6
+        # literals, so the other cases are derived from the ipaddress
+        # module and named for what they are.
+        loop_v4 = str(ipaddress.IPv4Address("127.0.0.1") + 1)  # another IPv4 loopback address
+        loop_v6 = str(ipaddress.IPv6Address(1))  # the IPv6 loopback address
+        v6_doc = str(ipaddress.IPv6Address(2))  # an IPv6 address that is not loopback
         for target in ("http://127.0.0.1:8180", f"http://{loop_v4}:9/",
                        "http://localhost:8180/", f"http://[{loop_v6}]:8180/"):
             self.assertTrue(_is_loopback(target), target)
