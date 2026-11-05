@@ -1,6 +1,6 @@
 # DecoyBench v1
 
-> **This is the Muse implementation of DecoyBench, version v1** (repository `decoybench-muse`). Two other independent implementations share the DecoyBench name. **This package is named `decoybench`, like the Opus one: run it in its own virtual environment** so the two never mix.
+> **This is DecoyBench implementation B, version v1** (repository `decoybench-alt-b`), one of three independent implementations built from the same specification and tests. The reference implementation is [decoybench](https://github.com/DeceptionCheck/decoybench); the other alternate is [decoybench-alt-a](https://github.com/DeceptionCheck/decoybench-alt-a). They have different commands and result formats; keep each in its own folder or virtual environment. Results and the model program: https://meta.deceptioncheck.ai/research/DecoyBench-Report.html
 
 Stdlib-only harness that replays a neutral, synthetic fixture
 corpus against a **localhost decoy target** (for example the
@@ -56,7 +56,7 @@ transport/timeout failures (unless `--tolerate-transport`).
 
 Extract the release archive into an EMPTY directory and run from
 there. This package is named `decoybench`, which collides with
-Opus's separate benchmark package of the same module name: never
+The alternate benchmark package of the same module name: never
 copy both trees into one directory, never install both into one
 interpreter path, and use separate directories (or virtual
 environments) per implementation.
